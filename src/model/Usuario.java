@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 //import java.util.Date;
 
@@ -10,15 +10,16 @@ public class Usuario {
 	int id;
 	String nome;
 	String sobrenome;
-	Calendar dataNascimento;
+	Date dataNascimento;
 	String cpf;
+	String senha;
 	List<Reserva> reservas;
 	
 	public Usuario() {
 		id = -1;
 		nome = "";
 		sobrenome = "";
-		dataNascimento = Calendar.getInstance();
+		dataNascimento = new Date();
 		cpf = "";
 	} 
 	
@@ -38,11 +39,11 @@ public class Usuario {
 		this.sobrenome = sobrenome;
 	}
 
-	public Calendar getDataNascimento() {
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Calendar dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
@@ -61,5 +62,12 @@ public class Usuario {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public String getSenha() {
+		return senha;
+	}
 
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 }
