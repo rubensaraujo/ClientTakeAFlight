@@ -1,10 +1,14 @@
 package view;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import controller.CadastrarUsuario;
 
 public class TelaPrincipal {
 	
-	
+	CadastrarUsuario cadastrarUsuario = new CadastrarUsuario();
 	
 	
 	public int tela() {
@@ -12,6 +16,7 @@ public class TelaPrincipal {
 		System.out.print("\n\n\n");
 		System.out.println("1 - Crie seu cadastro");
 		System.out.println("2 - Já sou cadastrado");
+		List<String> form = new ArrayList<String>();
 		Scanner in = new Scanner(System.in);
 		int option = in.nextInt();
 		
@@ -46,8 +51,15 @@ public class TelaPrincipal {
 			System.out.println("Confirma? 1- Sim 2- Não");
 			int confirma = in.nextInt();
 			if(confirma == 1) {
+				form.add(nome);
+				form.add(sobrenome);
+				form.add(dataNascimento);
+				form.add(cpf);
+				form.add(senha);
+				
 				in.close();
-				return 1;
+				cadastrarUsuario.cadastrarUser(form);
+				//return 1;
 			}
 		}
 		else if(option == 2) {

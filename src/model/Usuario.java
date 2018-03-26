@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 //import java.util.Date;
@@ -10,7 +11,7 @@ public class Usuario {
 	int id;
 	String nome;
 	String sobrenome;
-	Date dataNascimento;
+	Calendar dataNascimento;
 	String cpf;
 	String senha;
 	List<Reserva> reservas;
@@ -19,7 +20,7 @@ public class Usuario {
 		id = -1;
 		nome = "";
 		sobrenome = "";
-		dataNascimento = new Date();
+		dataNascimento = Calendar.getInstance();
 		cpf = "";
 	} 
 	
@@ -39,11 +40,11 @@ public class Usuario {
 		this.sobrenome = sobrenome;
 	}
 
-	public Date getDataNascimento() {
+	public Calendar getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
