@@ -7,7 +7,7 @@ public class TelaPrincipal {
 	
 	
 	
-	public void tela() {
+	public int tela() {
 		System.out.println("TakeAFlight - Sistema de reserva de passagens Aereas v0.1");
 		System.out.print("\n\n\n");
 		System.out.println("1 - Crie seu cadastro");
@@ -35,16 +35,36 @@ public class TelaPrincipal {
 			
 			System.out.print("Senha: ");
 			String senha = in.next();
-		
+			
+			System.out.println("Confira seu cadastro\n");
+			System.out.println("Nome: " + nome);
+			System.out.println("Sobrenome: " + sobrenome);
+			System.out.println("Data de Nascimento: " + dataNascimento);
+			System.out.println("CPF: " + cpf);
+			//System.out.println("Nome: " + nome);
+			System.out.println("\n\n");
+			System.out.println("Confirma? 1- Sim 2- Não");
+			int confirma = in.nextInt();
+			if(confirma == 1) {
+				in.close();
+				return 1;
+			}
 		}
 		else if(option == 2) {
 			System.out.println("TakeAFlight - Sistema de reserva de passagens Aereas v0.1");
 			System.out.print("\n\n\n");
-			System.out.println("Login");
+			System.out.println("Login de Usuario");
 			System.out.print("\n\n");
 			
-			
+			System.out.println("CPF: ");
+			String cpfL = in.next();
+			System.out.println("Senha: ");
+			String senhaL = in.next();
+			in.close();
+			return 1;
 		}
+		in.close();
+		return 0;
 	}
 
 	
