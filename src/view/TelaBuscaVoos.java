@@ -18,6 +18,7 @@ public class TelaBuscaVoos {
 		System.out.println("Deseja voo direto? 1 - Sim / 2 - Não");
 		int vooDireto = in.nextInt();
 	
+		
 	}
 
 

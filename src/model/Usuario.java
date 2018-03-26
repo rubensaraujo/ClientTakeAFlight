@@ -8,7 +8,7 @@ import java.util.List;
 public class Usuario {
 	
 	
-	int id;
+	//int id;
 	String nome;
 	String sobrenome;
 	Calendar dataNascimento;
@@ -17,7 +17,6 @@ public class Usuario {
 	List<Reserva> reservas;
 	
 	public Usuario() {
-		id = -1;
 		nome = "";
 		sobrenome = "";
 		dataNascimento = Calendar.getInstance();
@@ -55,15 +54,7 @@ public class Usuario {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-	
+		
 	public String getSenha() {
 		return senha;
 	}

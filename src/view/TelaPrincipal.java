@@ -1,23 +1,25 @@
 package view;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import controller.CadastrarUsuario;
+import controller.UsuarioController;
 
 public class TelaPrincipal {
 	
-	CadastrarUsuario cadastrarUsuario = new CadastrarUsuario();
+	UsuarioController userController = new UsuarioController();
+	List<String> form = new ArrayList<String>();
+	Scanner in = new Scanner(System.in);
+	TelaBuscaVoos telaBuscaVoos = new TelaBuscaVoos();
 	
-	
-	public int tela() {
+	public boolean tela() throws ParseException {
 		System.out.println("TakeAFlight - Sistema de reserva de passagens Aereas v0.1");
 		System.out.print("\n\n\n");
 		System.out.println("1 - Crie seu cadastro");
 		System.out.println("2 - Já sou cadastrado");
-		List<String> form = new ArrayList<String>();
-		Scanner in = new Scanner(System.in);
+		System.out.println("3 - Sair");
 		int option = in.nextInt();
 		
 		if(option == 1) {
@@ -46,7 +48,6 @@ public class TelaPrincipal {
 			System.out.println("Sobrenome: " + sobrenome);
 			System.out.println("Data de Nascimento: " + dataNascimento);
 			System.out.println("CPF: " + cpf);
-			//System.out.println("Nome: " + nome);
 			System.out.println("\n\n");
 			System.out.println("Confirma? 1- Sim 2- Não");
 			int confirma = in.nextInt();
@@ -57,9 +58,8 @@ public class TelaPrincipal {
 				form.add(cpf);
 				form.add(senha);
 				
-				in.close();
-				cadastrarUsuario.cadastrarUser(form);
-				//return 1;
+				userController.cadastrarUserBD(form);
+				return false;
 			}
 		}
 		else if(option == 2) {
@@ -72,13 +72,13 @@ public class TelaPrincipal {
 			String cpfL = in.next();
 			System.out.println("Senha: ");
 			String senhaL = in.next();
-			in.close();
-			return 1;
+			userController.loginUserBD(cpfL, senhaL);
+			telaBuscaVoos.buscaVoos();
 		}
-		in.close();
-		return 0;
+		else if(option == 3) {
+			in.close();
+			return true;
+		}
+		return true;
 	}
-
-	
-
 }
